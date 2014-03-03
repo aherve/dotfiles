@@ -1,0 +1,2 @@
+- *i3 configuration* :  put `dot_i3_slash_config` in `~/.i3/config`
+- `set_screens` : small script that setup multiscreen configuration

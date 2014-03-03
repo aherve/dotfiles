@@ -1,0 +1,6 @@
+#setup xrandr
+xrandr --output LVDS1 --auto --right-of VGA1
+xrandr --output VGA1 --auto --left-of LVDS1 --primary
+
+# Wallpaper
+nitrogen --restore
