@@ -21,7 +21,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-ragtag'
 Bundle 'vim-scripts/MatlabFilesEdition'
@@ -336,3 +336,6 @@ au BufNewFile,BufRead *.hql set filetype=sql
 
 " Workaround for slow long lines:
 set synmaxcol=200
+
+" perform case insensitive search: 
+set ic
