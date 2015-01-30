@@ -26,6 +26,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-ragtag'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Bundle 'kchmck/vim-coffee-script'
 " My Bundles here:
 "
 " original repos on github
@@ -337,5 +338,3 @@ au BufNewFile,BufRead *.hql set filetype=sql
 " Workaround for slow long lines:
 set synmaxcol=200
 
-" perform case insensitive search: 
-set ic
