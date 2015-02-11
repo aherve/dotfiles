@@ -27,6 +27,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-endwise'
 " My Bundles here:
 "
 " original repos on github
@@ -336,5 +337,5 @@ au BufNewFile,BufRead *.hql set filetype=sql
 
 
 " Workaround for slow long lines:
-set synmaxcol=200
+set synmaxcol=300
 
