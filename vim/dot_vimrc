@@ -33,6 +33,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'embear/vim-localvimrc'
 Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'ekalinin/Dockerfile.vim'
 " My Bundles here:
 "
 " original repos on github
