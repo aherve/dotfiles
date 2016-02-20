@@ -22,7 +22,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-ragtag'
 Bundle 'vim-scripts/MatlabFilesEdition'
@@ -34,22 +34,14 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'embear/vim-localvimrc'
 Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'ekalinin/Dockerfile.vim'
-" My Bundles here:
-"
-" original repos on github
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (ie. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
-" ...
+Bundle 'moll/vim-node'
+Bundle 'pangloss/vim-javascript'
+Bundle 'groenewege/vim-less'
+Bundle 'scrooloose/syntastic'
+Bundle 'ntpeters/vim-better-whitespace'
 
 filetype plugin indent on     " required!
+syntax on
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -186,7 +178,7 @@ nmap q: :q
 map <F4> :tabnew<cr>:e 
 
 map <leader>tn :tabnew %<cr>
-map <leader>te :tabedit
+map <leader>te :tabnew<cr>:e 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
@@ -194,9 +186,10 @@ map <leader>tm :tabmove
 
 
 " Tags update
-map <F12> :!ctags -R .<CR><CR>
+map <leader>tu :!ctags -R .<CR><CR>
 " Toggle 'preview' in omni-completion
-map <C-F12> :let &completeopt = (&completeopt == "menu" ? "menu,preview" : "menu") <bar> echo &completeopt <cr>
+"map <C-F12> :let &completeopt = (&completeopt == "menu" ? "menu,preview" : "menu") <bar> echo &completeopt <cr>
+" map <leader>xx :let &completeopt = (&completeopt == "menu" ? "menu,preview" : "menu") <bar> echo &completeopt <cr>
 
 "Preview zone F6/7/8
 map <F6> :pop<cr>
@@ -341,10 +334,17 @@ augroup END
 " Treat hql (hive) files as if it where standard sql:
 au BufNewFile,BufRead *.hql set filetype=sql
 
-
 " Workaround for slow long lines:
-set synmaxcol=300
-
+"set synmaxcol=300
 
 let g:localvimrc_sandbox=0 
 let g:localvimrc_ask=0 
+
+"Syntastic
+let g:syntastic_aggregate_errors = 1
+"let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
+nnoremap <leader>sc :SyntasticCheck<CR>
+nnoremap <leader>st :SyntasticToggleMode<CR>
+
