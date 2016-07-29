@@ -5,18 +5,18 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-rails'
+"Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/comments.vim'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'vim-scripts/Align'
+"Bundle 'vim-scripts/Align'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
@@ -25,13 +25,13 @@ Bundle 'tpope/vim-markdown'
 "Bundle 'Yggdroot/indentLine'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-ragtag'
-Bundle 'vim-scripts/MatlabFilesEdition'
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-Bundle 'kchmck/vim-coffee-script'
+"Bundle 'vim-scripts/MatlabFilesEdition'
+"Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'embear/vim-localvimrc'
+"Bundle 'embear/vim-localvimrc'
 Bundle 'vim-scripts/HTML-AutoCloseTag'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'moll/vim-node'
@@ -39,6 +39,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'groenewege/vim-less'
 Bundle 'scrooloose/syntastic'
 Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'leafgarland/typescript-vim'
 
 filetype plugin indent on     " required!
 syntax on
@@ -62,7 +63,7 @@ set t_Co=256
 set ttymouse=xterm2
 set cursorline
 
-hi CursorLine cterm=none ctermbg=234 
+hi CursorLine cterm=none ctermbg=234
 if (&term =~ 'rxvt') "Vieux hack rxvt (...)
   so ~/.vim/sitaktif/rxvt.vim
 end
@@ -134,7 +135,7 @@ set foldmethod=marker "Folds automatically between {{{ and }}}
 
 " ---| MORE COMPLEX FUNCTIONS |--- {{{
 
-" Updates 'Last change:' ; called on every buffer saving 
+" Updates 'Last change:' ; called on every buffer saving
 function! TimeStamp()
   let lines = line("$") < 10 ? line("$") : 10
   let pattern1 = '\([Ll]ast [Cc]hange\(s\=\)\(\s\=\):\s\+\)\d\d\d\d \w[a-zé][a-zû] \d\d'
@@ -175,10 +176,10 @@ nmap q: :q
 "map ² <ESC>
 
 " Tabs
-map <F4> :tabnew<cr>:e 
+map <F4> :tabnew<cr>:e
 
 map <leader>tn :tabnew %<cr>
-map <leader>te :tabnew<cr>:e 
+map <leader>te :tabnew<cr>:e
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
@@ -275,7 +276,7 @@ autocmd FileType c,cpp map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra
 
 " JAVA
 " See ftplugin/java.vim
-"autocmd FileType java 
+"autocmd FileType java
 
 " HTML
 "Jump to end of tag
@@ -319,7 +320,7 @@ au BufRead /tmp/mutt-* set tw=72 spell
 "}}}
 
 " ---| VIM-LATEX |--- {{{
-" LaTeX Settings : 
+" LaTeX Settings :
 let g:tex_conceal = ""
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ImageDir = '.'
@@ -327,9 +328,9 @@ let g:Tex_MultipleCompileFormats='pdf, aux'
 
 "}}}
 
-augroup filetypedetect 
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
-augroup END 
+augroup filetypedetect
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
 
 " Treat hql (hive) files as if it where standard sql:
 au BufNewFile,BufRead *.hql set filetype=sql
@@ -337,14 +338,15 @@ au BufNewFile,BufRead *.hql set filetype=sql
 " Workaround for slow long lines:
 "set synmaxcol=300
 
-let g:localvimrc_sandbox=0 
-let g:localvimrc_ask=0 
+let g:localvimrc_sandbox=0
+let g:localvimrc_ask=0
 
 "Syntastic
 let g:syntastic_aggregate_errors = 1
 "let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
+let g:syntastic_typescript_checkers = ['tslint']
+"let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['ts']  }
 nnoremap <leader>sc :SyntasticCheck<CR>
 nnoremap <leader>st :SyntasticToggleMode<CR>
 

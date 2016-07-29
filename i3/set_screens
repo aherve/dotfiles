@@ -1,6 +1,6 @@
 #setup xrandr
-xrandr --output LVDS1 --auto --right-of VGA1
-xrandr --output VGA1 --auto --left-of LVDS1 --primary
+xrandr --output eDP1 --auto --right-of DP2
+xrandr --output DP2 --auto --left-of eDP1 --primary
 
 # Wallpaper
 nitrogen --restore
