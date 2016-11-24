@@ -1,0 +1,19 @@
+# xclip
+alias xclip="xclip -selection c"
+
+# Git stuff
+alias gadd="git add -A"
+alias gco="git checkout"
+alias gcommit="git commit"
+alias gdiff="git diff"
+alias gpull="git pull"
+alias gpush="git push"
+alias gst="git status"
+
+# ls
+alias cl="clear"
+alias la="ls -A"
+alias ll="ls -ltrh"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
