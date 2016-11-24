@@ -8,6 +8,8 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Quramy/tsuquyomi'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -16,7 +18,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/comments.vim'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/taglist.vim'
-"Bundle 'vim-scripts/Align'
+Bundle 'vim-scripts/Align'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
@@ -129,7 +131,9 @@ set showcmd "Show beginning of normal commands (try d and see at bottom-right)
 
 " Auto-folding and auto-layout (e.g. for vim help files)
 set foldenable "Automatic folding
-set foldmethod=marker "Folds automatically between {{{ and }}}
+set foldmethod=syntax "Folds automatically between {{{ and }}}
+set foldnestmax=2
+set foldminlines=5
 
 "}}}
 
@@ -157,11 +161,13 @@ endfunction
 " ---| MAPPINGS |--- {{{
 
 "Invert marks : <quote> is easier to type (for AZERTY keyboards)
-map ' `
+" map ' `
 " Much better :) hope it doesn't crash any plugin
 map Y y$
 " Next window
 map - <c-w>w
+map H ^
+map L $
 
 
 " TODO find a useful mapping for Q
@@ -176,10 +182,10 @@ nmap q: :q
 "map ² <ESC>
 
 " Tabs
-map <F4> :tabnew<cr>:e
+map <F4> :tabnew<cr>:e 
 
 map <leader>tn :tabnew %<cr>
-map <leader>te :tabnew<cr>:e
+map <leader>te :tabnew<cr>:e 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
@@ -345,8 +351,9 @@ let g:localvimrc_ask=0
 let g:syntastic_aggregate_errors = 1
 "let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_typescript_checkers = ['tslint']
+"let g:syntastic_typescript_checkers = []
 "let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['ts']  }
 nnoremap <leader>sc :SyntasticCheck<CR>
 nnoremap <leader>st :SyntasticToggleMode<CR>
 
+let g:tsuquyomi_single_quote_import=1
