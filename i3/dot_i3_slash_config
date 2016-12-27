@@ -140,8 +140,8 @@ bar {
 }
 
 #setup xrandr
-exec xrandr --output LVDS1 --auto --right-of VGA1
-exec xrandr --output VGA1 --auto --left-of LVDS1 --primary
+exec xrandr --output DVI-D-1 --auto --primary
+exec xrandr --output VGA-1 --auto --right-of DVI-D-1
 
 # Wallpaper
 exec ==no-startup-id nitrogen --restore
@@ -150,3 +150,6 @@ exec ==no-startup-id nitrogen --restore
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% && pactl set-sink-mute 1 0
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -- -5% && pactl set-sink-mute 1 0
 bindsym XF86AudioMute exec pactl set-sink-mute 1 1
+
+# Mouse
+exec slow_mouse

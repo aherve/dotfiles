@@ -114,7 +114,7 @@ set history=1024 "Memorize 1024 last commands
 set updatetime=2000 "Update swap (and showmark plugin) every 2 sec
 
 " Mouse
-set mouse=a "Use mouse (all)
+set mouse=r "Use mouse (all)
 set ttymouse=xterm2 "Mouse dragging in iTerm
 
 " Command mode options
@@ -133,7 +133,7 @@ set showcmd "Show beginning of normal commands (try d and see at bottom-right)
 set foldenable "Automatic folding
 set foldmethod=syntax "Folds automatically between {{{ and }}}
 set foldnestmax=2
-set foldminlines=5
+autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif
 
 "}}}
 
@@ -153,8 +153,6 @@ function! TimeStamp()
   execute printf('1,%ds/\C\m%s/%s/e', lines, pattern2, replace2)
   execute printf('$-%d+1,$s/\C\m%s/%s/e', lines, pattern2, replace2)
 endfunction
-
-
 
 "}}}
 

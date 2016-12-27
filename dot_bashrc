@@ -9,6 +9,7 @@ alias gdiff="git diff"
 alias gpull="git pull"
 alias gpush="git push"
 alias gst="git status"
+alias gs="git status" # remove this if you want to use ghostscript ^^
 
 # ls
 alias cl="clear"
