@@ -361,7 +361,9 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 set backupcopy=yes
 
+let g:SuperTabMappingBackward = '<s-c-space>'
 autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, "<c-x><c-o>") |
   \ endif
+inoremap <S-Tab> <c-p>
