@@ -8,6 +8,7 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Quramy/tsuquyomi'
 Bundle 'tpope/vim-fugitive'
@@ -43,6 +44,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'blueyed/vim-diminactive'
+Bundle 'airblade/vim-gitgutter'
 
 filetype plugin indent on     " required!
 syntax on
@@ -286,12 +288,6 @@ autocmd FileType c,cpp map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra
 " HTML
 "Jump to end of tag
 "autocmd FileType htm,html,htmldjango,xml,xhtml imap <c-l> <esc>l%a
-
-" RUBY
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Django
 autocmd FileType htmldjango imap {% {%  %}<esc>2hi
