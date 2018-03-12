@@ -42,6 +42,7 @@ Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/comments.vim'
 Plugin 'vim-scripts/svg.vim'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'junegunn/fzf.vim'
 
 filetype plugin indent on     " required!
 syntax on
@@ -366,3 +367,7 @@ set dir=$HOME/.vim/tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
 nnoremap :Ti :TsuImport
+
+set rtp+=~/.fzf
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
