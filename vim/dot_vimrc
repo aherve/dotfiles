@@ -350,6 +350,7 @@ nnoremap <leader>sc :SyntasticCheck<CR>
 nnoremap <leader>st :SyntasticToggleMode<CR>
 
 let g:tsuquyomi_single_quote_import=1
+let g:tsuquyomi_shortest_import_path=1
 
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
