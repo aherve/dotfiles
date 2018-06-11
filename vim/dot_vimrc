@@ -367,8 +367,8 @@ inoremap <S-Tab> <c-p>
 set dir=$HOME/.vim/tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
-nnoremap :Ti :TsuImport
+nnoremap <leader>Ti :TsuImport
 
 set rtp+=~/.fzf
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
+nmap <Leader>F :GFiles<CR>
+nmap <Leader>f :Files<CR>
