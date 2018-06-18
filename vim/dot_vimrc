@@ -43,6 +43,7 @@ Plugin 'vim-scripts/comments.vim'
 Plugin 'vim-scripts/svg.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'lervag/vimtex'
 
 filetype plugin indent on     " required!
 syntax on
@@ -367,8 +368,11 @@ inoremap <S-Tab> <c-p>
 set dir=$HOME/.vim/tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
-nnoremap <leader>Ti :TsuImport
+nnoremap <leader>Ti :TsuImport<CR>
 
 set rtp+=~/.fzf
 nmap <Leader>F :GFiles<CR>
 nmap <Leader>f :Files<CR>
+
+let g:tex_flavor='latex'
+let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
