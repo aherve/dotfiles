@@ -1,0 +1,10 @@
+{
+  "*component.ts": {
+    "alternate": "{}component.html",
+    "type": "controller"
+  },
+  "*.html": {
+    "alternate": "{}.ts",
+    "type": "template"
+  }
+}

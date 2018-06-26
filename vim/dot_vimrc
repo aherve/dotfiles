@@ -41,9 +41,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/comments.vim'
 Plugin 'vim-scripts/svg.vim'
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/taglist.vim'
 Plugin 'junegunn/fzf.vim'
-Plugin 'lervag/vimtex'
+"Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-projectionist'
 
 filetype plugin indent on     " required!
 syntax on
@@ -182,10 +183,10 @@ nmap q: :q
 "map ² <ESC>
 
 " Tabs
-map <F4> :tabnew<cr>:e 
+map <F4> :tabnew<cr>
 
 map <leader>tn :tabnew %<cr>
-map <leader>te :tabnew<cr>:e 
+map <leader>te :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
@@ -193,7 +194,7 @@ map <leader>tm :tabmove
 
 
 " Tags update
-map <leader>tu :!ctags -R .<CR><CR>
+" map <leader>tu :!ctags -R .<CR><CR>
 " Toggle 'preview' in omni-completion
 "map <C-F12> :let &completeopt = (&completeopt == "menu" ? "menu,preview" : "menu") <bar> echo &completeopt <cr>
 " map <leader>xx :let &completeopt = (&completeopt == "menu" ? "menu,preview" : "menu") <bar> echo &completeopt <cr>
@@ -278,7 +279,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " C / C++ (OmniCppComplete)
-autocmd FileType c,cpp map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+" autocmd FileType c,cpp map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " JAVA
 " See ftplugin/java.vim
@@ -376,3 +377,8 @@ nmap <Leader>f :Files<CR>
 
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
+
+nnoremap <leader>ac :e @%
+
+" vim-projectionist quickey (ag: alternate go)
+nnoremap <Leader>ag :A<CR>
