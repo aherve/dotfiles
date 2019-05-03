@@ -4,12 +4,14 @@ call plug#begin('~/.local/share/nvim/site/autoload')
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
+Plug 'bling/vim-bufferline'
 Plug 'blueyed/vim-diminactive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
@@ -27,6 +29,16 @@ Plug 'vim-scripts/svg.vim'
 call plug#end()
 
 filetype plugin indent on
+
+" syntastic default settings:
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " colorsheme
 set termencoding=utf8
