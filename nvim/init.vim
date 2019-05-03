@@ -55,10 +55,9 @@ map Y y$
 map - <c-w>w
 map H ^
 map L $
-map <F4> :tabnew<cr>
 nmap * *zz
-nmap <Tab> :tabnext<cr>
-nmap <S-Tab> :tabprev<cr>
+nmap <Tab> :bn<cr>
+nmap <S-Tab> :bprevious<cr>
 nmap <space> <pagedown>
 
 
