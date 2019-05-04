@@ -60,6 +60,9 @@ nmap <Tab> :bn<cr>
 nmap <S-Tab> :bprevious<cr>
 nmap <space> <pagedown>
 
+" commenting behavior
+set formatoptions+=ln "See :h 'formatoptions' :)
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set so=4 "When moving vertical, start scrolling 4 lines before reaching bottom
 set expandtab
@@ -72,8 +75,6 @@ set number "Show lines
 set showmode "Show mode in status (insertion, visual...)
 set showcmd "Show beginning of normal commands (try d and see at bottom-right)
 set ruler "Show line,col in statusbar
-
-
 
 " Windows
 set splitright " Vsplit at right
@@ -88,7 +89,10 @@ set matchtime=2 "Show new matching parenthesis for 2/10th of sec
 
 " vim-projectionist quickey (ag: alternate go)
 nnoremap <Leader>ag :A<CR>
-"
+
+" vim-bufferline
+let g:bufferline_fname_mod = ':.'
+
 " use home directory for swap files
 set dir=$HOME/.config/nvim/tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
