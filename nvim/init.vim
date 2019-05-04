@@ -4,11 +4,12 @@ call plug#begin('~/.local/share/nvim/site/autoload')
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
-Plug 'bling/vim-bufferline'
+"Plug 'bling/vim-bufferline'
 Plug 'blueyed/vim-diminactive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -155,7 +156,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for do codeAction of current line
 nmap <leader>ca  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>cf  <Plug>(coc-fix-current)
+nmap <leader>ch  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
