@@ -58,3 +58,4 @@ done
 #done
 
 ## to deactivate trackpad : xinput set-prop 11 '133' 0 (11 is device id, 133 is 'Device enabled')
+

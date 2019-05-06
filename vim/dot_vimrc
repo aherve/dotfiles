@@ -14,7 +14,6 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'
 Plugin 'blueyed/vim-diminactive'
-Plugin 'digitaltoad/vim-jade'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'ervandew/supertab'
 Plugin 'groenewege/vim-less'
@@ -80,13 +79,12 @@ end
 
 " Indentation and tabs
 "set expandtab
-"set tabstop=1
 
 set expandtab
 set autoindent "Indent (based on above line) when adding a line
-set ts=2 "A tab is 4 spaces
-set softtabstop=2 "See 4 spaces per tab
-set sw=2 "Indent is 4
+set ts=2 "A tab is 2 spaces
+set softtabstop=2 "See 2 spaces per tab
+set shiftwidth=2 "Indent is 2
 "set nosmartindent "Cindent is better
 
 " Editing layout
@@ -134,7 +132,7 @@ set showcmd "Show beginning of normal commands (try d and see at bottom-right)
 
 " Auto-folding and auto-layout (e.g. for vim help files)
 set foldenable "Automatic folding
-set foldmethod=syntax "Folds automatically between {{{ and }}}
+set foldmethod=syntax
 set foldnestmax=2
 autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif
 
@@ -288,12 +286,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " HTML
 "Jump to end of tag
 "autocmd FileType htm,html,htmldjango,xml,xhtml imap <c-l> <esc>l%a
-
-" Django
-autocmd FileType htmldjango imap {% {%  %}<esc>2hi
-autocmd FileType htmldjango imap <leader>b <esc>:s/{% block \(.*\) %}/&\r{% endblock \1 %}<cr>:noh<cr>O
-autocmd FileType htmldjango imap <leader>e <esc>:s/{% \([a-zA-Z]\+\) \(.*\) %}/&\r{% end\1 \2 %}<cr>:noh<cr>O
-cmap ftd set filetype=htmldjango<cr>
 
 " Prototype (js framework) :
 "Useful only for azerty

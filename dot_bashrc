@@ -115,6 +115,16 @@ fi
 # xclip
 alias xclip="xclip -selection c"
 
+# Hunteed
+alias admin="cd ~/Hunteed/HunteedV4/clients/admin/src/app"
+alias api="cd ~/Hunteed/HunteedV4/server"
+alias clients="cd ~/Hunteed/HunteedV4/clients"
+alias company="cd ~/Hunteed/HunteedV4/clients/company/src/app"
+alias corporate="cd ~/Hunteed/HunteedV4/clients/corporate/src/app"
+alias hunteed="cd ~/Hunteed/HunteedV4"
+alias hunter="cd ~/Hunteed/HunteedV4/clients/hunter/src/app"
+alias server="cd ~/Hunteed/HunteedV4/server"
+
 # Git stuff
 alias gadd="git add -A"
 alias gco="git checkout"
@@ -123,27 +133,24 @@ alias gdiff="git diff"
 alias glog="git log" # remove this if you want to use ghostscript ^^
 alias gpull="git pull"
 alias gpush="git push"
+alias gs="git status" # remove this if you want to use ghostscript ^^
 alias gst="git status"
 parse_git_branch() {
- git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 
 # ls
 alias cl="clear"
-alias la="ls -A"
 alias ll="ls -ltrh"
+alias la="ll -A"
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="~/.local/bin:/usr/local/heroku/bin:$PATH"
+
+alias less2sass='docker run --rm -v `pwd`:/work cthiebault/less2sass'
+
+export EDITOR=vim
+export GREN_GITHUB_TOKEN=fcc93222bdf0ee0d9c48e41a63e640ca7b4ff470
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-alias hunteed="cd ~/Hunteed/HunteedV4/"
-alias hunter="cd ~/Hunteed/HunteedV4/clients/hunter/src/app"
-alias company="cd ~/Hunteed/HunteedV4/clients/company/src/app"
-alias admin="cd ~/Hunteed/HunteedV4/clients/admin/src/app"
-alias api="cd ~/Hunteed/HunteedV4/server"
-
-export COMPOSE_HTTP_TIMEOUT=200
-
