@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/site/autoload')
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
-"Plug 'bling/vim-bufferline'
 Plug 'blueyed/vim-diminactive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
@@ -18,6 +17,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'nikvdp/ejs-syntax'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
