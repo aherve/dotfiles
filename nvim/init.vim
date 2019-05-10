@@ -12,6 +12,7 @@ Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
@@ -103,6 +104,12 @@ set rtp+=~/.fzf
 nmap <Leader>F :GFiles<CR>
 nmap <Leader>f :Files<CR>
 
+" auto-folding
+set foldenable
+set foldmethod=syntax
+set foldnestmax=2
+autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif
+
 " ====================================== COC ==================================
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -156,13 +163,10 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for do codeAction of current line
 nmap <leader>ca  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>ch  <Plug>(coc-fix-current)
+nmap <leader>cj  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 "let g:lightline = {
