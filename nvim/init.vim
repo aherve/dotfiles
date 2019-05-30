@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'

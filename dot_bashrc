@@ -112,6 +112,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# neovim
+alias vi="nvim"
+alias vim="nvim"
+
 # xclip
 alias xclip="xclip -selection c"
 
