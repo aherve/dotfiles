@@ -19,6 +19,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'nikvdp/ejs-syntax'
+Plug 'vim-latex/vim-latex'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
@@ -161,9 +162,9 @@ nmap <leader>rn <Plug>(coc-rename)
 "nmap <leader>f  <Plug>(coc-format-selected)
 "
 " Remap for do codeAction of current line
-nmap <leader>ca  <Plug>(coc-codeaction)
+nmap <leader>Ta  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>cj  <Plug>(coc-fix-current)
+nmap <leader>Ti  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
