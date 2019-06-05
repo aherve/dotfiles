@@ -2,12 +2,16 @@ call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
 Plug 'Lokaltog/vim-easymotion'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'blueyed/vim-diminactive'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'nikvdp/ejs-syntax'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -18,7 +22,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'nikvdp/ejs-syntax'
 Plug 'vim-latex/vim-latex'
 
 " languages
@@ -203,3 +206,9 @@ command! -nargs=0 Format :call CocAction('format')
 
 " =============================================================================
 
+
+" golang
+nmap <leader>gr <Plug>(go-run)
+nmap <leader>gc <Plug>(go-build)
+nmap <leader>gt <Plug>(go-test)
+let g:deoplete#enable_at_startup = 1
