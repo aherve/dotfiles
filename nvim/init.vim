@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
@@ -11,12 +10,14 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'nikvdp/ejs-syntax'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -212,4 +213,5 @@ command! -nargs=0 Format :call CocAction('format')
 nmap <leader>gr <Plug>(go-run)
 nmap <leader>gc <Plug>(go-build)
 nmap <leader>gt <Plug>(go-test)
+nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
