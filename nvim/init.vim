@@ -10,6 +10,7 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'nikvdp/ejs-syntax'
 Plug 'othree/html5.vim'
@@ -212,4 +213,5 @@ command! -nargs=0 Format :call CocAction('format')
 nmap <leader>gr <Plug>(go-run)
 nmap <leader>gc <Plug>(go-build)
 nmap <leader>gt <Plug>(go-test)
+nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
