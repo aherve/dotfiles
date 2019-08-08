@@ -1,6 +1,10 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
+Plug 'flazz/vim-colorschemes'
+Plug 'jparise/vim-graphql'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
@@ -50,10 +54,10 @@ let g:syntastic_check_on_wq = 0
 
 " colorsheme
 set termencoding=utf8
-colorscheme desert
+colorscheme gruvbox
 set cursorline
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-hi CursorLine cterm=none ctermbg=234
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
+"hi CursorLine cterm=none ctermbg=234
 
 " mouse
 set mouse=r "Use mouse (all)
@@ -157,7 +161,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -212,6 +216,6 @@ command! -nargs=0 Format :call CocAction('format')
 " golang
 nmap <leader>gr <Plug>(go-run)
 nmap <leader>gc <Plug>(go-build)
-nmap <leader>gt <Plug>(go-test)
+nmap <leader>gt :GoTest!<cr>
 nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
