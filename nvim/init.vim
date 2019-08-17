@@ -54,6 +54,8 @@ let g:syntastic_check_on_wq = 0
 
 " colorsheme
 set termencoding=utf8
+let g:gruvbox_italic=1
+set termguicolors
 colorscheme gruvbox
 set cursorline
 "highlight ColorColumn ctermbg=235 guibg=#2c2d27
