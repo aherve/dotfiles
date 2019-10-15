@@ -6,5 +6,13 @@
   "*.html": {
     "alternate": "{}.ts",
     "type": "template"
+  },
+  "*.go": {
+    "alternate": "{}_test.go",
+    "type": "main"
+  },
+  "*_test.go": {
+    "alternate": "{}.go",
+    "type": "test"
   }
 }

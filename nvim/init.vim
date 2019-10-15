@@ -1,18 +1,18 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
-Plug 'xolox/vim-colorscheme-switcher'
-Plug 'xolox/vim-misc'
-Plug 'flazz/vim-colorschemes'
-Plug 'jparise/vim-graphql'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
+Plug 'bling/vim-bufferline'
 Plug 'blueyed/vim-diminactive'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'flazz/vim-colorschemes'
+Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
@@ -29,7 +29,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
-Plug 'bling/vim-bufferline'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'xolox/vim-misc'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
@@ -222,3 +223,4 @@ nmap <leader>gc <Plug>(go-build)
 nmap <leader>gt :GoTest!<cr>
 nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'

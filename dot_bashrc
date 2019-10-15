@@ -148,13 +148,27 @@ export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[32m\]\$(parse_git_branch
 alias cl="clear"
 alias ll="ls -ltrh"
 alias la="ll -A"
+alias data="cd ~/Aircall/data-platform"
 
-### Added by the Heroku Toolbelt
-export PATH="~/.local/bin:/usr/local/heroku/bin:$PATH"
-
-alias less2sass='docker run --rm -v `pwd`:/work cthiebault/less2sass'
+### Go binaries
+export PATH="~/go/bin:$PATH"
 
 export EDITOR=vim
-export GREN_GITHUB_TOKEN=fcc93222bdf0ee0d9c48e41a63e640ca7b4ff470
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export TERMINAL=mate-terminal
+
+function aircall_mfa(){
+	if [ $# -ne 1  ] ; then
+		echo "Usage: $0 mfa-token "
+		return 1
+	fi
+	profile='aircall'
+	mfa=$1
+	eval `aws sts get-session-token --serial-number arn:aws:iam::232338174778:mfa/aurelien --token-code $mfa --profile $profile --output json | jq -r ". | {AWS_SECRET_ACCESS_KEY: .Credentials.SecretAccessKey, AWS_ACCESS_KEY_ID: .Credentials.AccessKeyId, AWS_SESSION_TOKEN: .Credentials.SessionToken} | to_entries|map(\"export \(.key)=\(.value|tostring)\")|.[]"`
+	unset 'export'
+	export AWS_DEFAULT_REGION='us-west-1'
+	export AWS_REGION='us-west-1'
+
+}
