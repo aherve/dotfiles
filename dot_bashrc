@@ -149,6 +149,7 @@ alias cl="clear"
 alias ll="ls -ltrh"
 alias la="ll -A"
 alias data="cd ~/Aircall/data-platform"
+alias orc-tools="java -jar ~/orc/build/java/tools/orc-tools-1.7.0-SNAPSHOT-uber.jar"
 
 ### Go binaries
 export PATH="~/go/bin:$PATH"
