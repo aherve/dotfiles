@@ -32,6 +32,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
+Plug 'derekwyatt/vim-scala'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
@@ -225,3 +226,9 @@ nmap <leader>gt :GoTest!<cr>
 nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
+
+" scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+
+" Terraform autoformat
+autocmd BufWritePost *.tf execute ':TerraformFmt'
