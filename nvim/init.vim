@@ -231,4 +231,4 @@ let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Terraform autoformat
-autocmd BufWritePost *.tf execute ':TerraformFmt'
+autocmd BufWritePre *.tf execute ':TerraformFmt'
