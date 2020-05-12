@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
+Plug 'lepture/vim-velocity'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
@@ -122,6 +123,7 @@ nmap <Leader>f :Files<CR>
 
 " auto-folding
 set foldenable
+"set nofoldenable
 set foldmethod=syntax
 set foldnestmax=2
 autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif
@@ -227,8 +229,14 @@ nmap <leader>gl <Plug>(go-lint)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 
+" This prevents go autofmt to refold everything after each save
+let g:go_fmt_experimental = 1
+
 " scala
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Terraform autoformat
 autocmd BufWritePre *.tf execute ':TerraformFmt'
+
+" Apache velocity
+au BufNewFile,BufRead *.vm,*.shtml,*.stm,*.vtl set ft=velocity

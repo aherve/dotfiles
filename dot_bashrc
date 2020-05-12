@@ -115,6 +115,7 @@ fi
 # neovim
 alias vi="nvim"
 alias vim="nvim"
+alias meh="echo '¯\_(ツ)_/¯' | xclip"
 
 # xclip
 alias xclip="xclip -selection c"
@@ -149,6 +150,7 @@ alias cl="clear"
 alias ll="ls -ltrh"
 alias la="ll -A"
 alias data="cd ~/Aircall/data-platform"
+alias aircall="cd ~/Aircall"
 alias orc-tools="java -jar ~/orc/build/java/tools/orc-tools-1.7.0-SNAPSHOT-uber.jar"
 
 ### Go binaries
