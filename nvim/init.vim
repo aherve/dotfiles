@@ -1,28 +1,25 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
-Plug 'lepture/vim-velocity'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
-"Plug 'bling/vim-bufferline'
 Plug 'blueyed/vim-diminactive'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'flazz/vim-colorschemes'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
+Plug 'lepture/vim-velocity'
 Plug 'lervag/vimtex'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release'}
 Plug 'nikvdp/ejs-syntax'
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+"Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -33,7 +30,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
-Plug 'derekwyatt/vim-scala'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
@@ -42,20 +38,21 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/svg.vim'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
 filetype plugin indent on
 
-" syntastic default settings:
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"" syntastic default settings:
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " colorsheme
 set termencoding=utf8
@@ -131,6 +128,25 @@ autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif
 " ====================================== COC ==================================
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -141,6 +157,9 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+"inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -226,11 +245,14 @@ nmap <leader>gr <Plug>(go-run)
 nmap <leader>gc <Plug>(go-build)
 nmap <leader>gt :GoTest!<cr>
 nmap <leader>gl <Plug>(go-lint)
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 
 " This prevents go autofmt to refold everything after each save
 let g:go_fmt_experimental = 1
+let g:go_fmt_command = "goimports"
 
 " scala
 au BufRead,BufNewFile *.sbt set filetype=scala

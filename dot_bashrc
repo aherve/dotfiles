@@ -135,7 +135,7 @@ alias gadd="git add -A"
 alias gco="git checkout"
 alias gcommit="git commit"
 alias gdiff="git diff"
-alias glog="git log" # remove this if you want to use ghostscript ^^
+alias glog="git log --since=1.weeks --pretty=format:\"%h - %an, %ar : %s\""
 alias gpull="git pull"
 alias gpush="git push"
 alias gs="git status" # remove this if you want to use ghostscript ^^
@@ -151,6 +151,7 @@ alias ll="ls -ltrh"
 alias la="ll -A"
 alias data="cd ~/Aircall/data-platform"
 alias aircall="cd ~/Aircall"
+alias messaging="cd ~/Aircall/messaging-protocol"
 alias orc-tools="java -jar ~/orc/build/java/tools/orc-tools-1.7.0-SNAPSHOT-uber.jar"
 
 ### Go binaries
