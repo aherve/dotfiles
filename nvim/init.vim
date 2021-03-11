@@ -39,6 +39,7 @@ Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/svg.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'stevearc/vim-arduino'
 
 call plug#end()
 

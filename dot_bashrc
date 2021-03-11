@@ -115,10 +115,11 @@ fi
 # neovim
 alias vi="nvim"
 alias vim="nvim"
-alias meh="echo '¯\_(ツ)_/¯' | xclip"
+alias meh="echo '¯\_(ツ)_/¯' | xsel --clipboard"
 
 # xclip
 alias xclip="xclip -selection c"
+alias xsel="xsel --clipboard"
 
 # Hunteed
 alias admin="cd ~/Hunteed/HunteedV4/clients/admin/src/app"
