@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
 " tools
+Plug 'artoj/pgn-syntax-vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
@@ -30,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
+Plug 'Quramy/tsuquyomi'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
@@ -40,6 +42,7 @@ Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/svg.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'stevearc/vim-arduino'
+Plug 'uarun/vim-protobuf'
 
 call plug#end()
 
@@ -263,3 +266,6 @@ autocmd BufWritePre *.tf execute ':TerraformFmt'
 
 " Apache velocity
 au BufNewFile,BufRead *.vm,*.shtml,*.stm,*.vtl set ft=velocity
+
+" c++ autoformat
+autocmd BufWritePre *.cpp execute ':Format'
