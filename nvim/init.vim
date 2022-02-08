@@ -31,18 +31,20 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
-Plug 'Quramy/tsuquyomi'
+Plug 'rhysd/vim-clang-format'
 
 " languages
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/svg.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'stevearc/vim-arduino'
 Plug 'uarun/vim-protobuf'
+Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()
 
@@ -61,6 +63,7 @@ filetype plugin indent on
 " colorsheme
 set termencoding=utf8
 let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='soft'
 set termguicolors
 colorscheme gruvbox
 set cursorline
@@ -257,6 +260,10 @@ let g:go_info_mode='gopls'
 " This prevents go autofmt to refold everything after each save
 let g:go_fmt_experimental = 1
 let g:go_fmt_command = "goimports"
+let g:go_mod_fmt_autosave = 1
+
+let g:go_imports_mode = "goimports"
+let g:go_imports_autosave = 1
 
 " scala
 au BufRead,BufNewFile *.sbt set filetype=scala
@@ -269,3 +276,10 @@ au BufNewFile,BufRead *.vm,*.shtml,*.stm,*.vtl set ft=velocity
 
 " c++ autoformat
 autocmd BufWritePre *.cpp execute ':Format'
+
+
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+let g:closetag_regions =  {
+\ 'typescript.tsx': 'jsxRegion,tsxRegion',
+\ 'javascript.jsx': 'jsxRegion',
+\ }
