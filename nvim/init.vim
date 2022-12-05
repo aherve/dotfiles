@@ -1,50 +1,49 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
-" tools
-Plug 'artoj/pgn-syntax-vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
+Plug 'artoj/pgn-syntax-vim'
 Plug 'blueyed/vim-diminactive'
+Plug 'chrisbra/csv.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'flazz/vim-colorschemes'
+Plug 'github/copilot.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
+Plug 'jxnblk/vim-mdx-js'
+Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-velocity'
 Plug 'lervag/vimtex'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', { 'branch': 'release'}
+Plug 'neoclide/jsonc.vim'
 Plug 'nikvdp/ejs-syntax'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'rhysd/vim-clang-format'
+Plug 'samoshkin/vim-mergetool'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-"Plug 'scrooloose/syntastic'
+Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'uarun/vim-protobuf'
 Plug 'vickenty/vim-hive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-latex/vim-latex'
+Plug 'vim-scripts/svg.vim'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
-Plug 'rhysd/vim-clang-format'
-
-" languages
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-dotenv'
-Plug 'tpope/vim-markdown'
-Plug 'vim-scripts/svg.vim'
-Plug 'chrisbra/csv.vim'
-Plug 'stevearc/vim-arduino'
-Plug 'uarun/vim-protobuf'
-Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()
 
@@ -205,9 +204,9 @@ nmap <leader>rn <Plug>(coc-rename)
 "nmap <leader>f  <Plug>(coc-format-selected)
 "
 " Remap for do codeAction of current line
-nmap <leader>Ta  <Plug>(coc-codeaction)
+nmap <leader>ta  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>Ti  <Plug>(coc-fix-current)
+nmap <leader>tf  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -283,3 +282,15 @@ let g:closetag_regions =  {
 \ 'typescript.tsx': 'jsxRegion,tsxRegion',
 \ 'javascript.jsx': 'jsxRegion',
 \ }
+
+" use node 17 with copilot
+let g:copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
+
+" remap copilot complete (tab is used by coc)
+let g:copilot_no_tab_map = v:true
+let g:copilot_assume_mapped = v:true
+imap <silent><script><expr> <C-k> copilot#Accept("\<CR>")
+
+" mergetool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
