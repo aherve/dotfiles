@@ -14,6 +14,7 @@ Plug 'github/copilot.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jxnblk/vim-mdx-js'
 Plug 'leafgarland/typescript-vim'
@@ -44,6 +45,9 @@ Plug 'vim-latex/vim-latex'
 Plug 'vim-scripts/svg.vim'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
+
+Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
 call plug#end()
 
@@ -113,7 +117,7 @@ set matchtime=2 "Show new matching parenthesis for 2/10th of sec
 nnoremap <Leader>ag :A<CR>
 
 " vim-bufferline
-let g:bufferline_fname_mod = ':.'
+"let g:bufferline_fname_mod = ':.'
 
 " use home directory for swap files
 set dir=$HOME/.config/nvim/tmp/swap
@@ -121,8 +125,8 @@ if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
 " fzf
 set rtp+=~/.fzf
-nmap <Leader>F :GFiles<CR>
-nmap <Leader>f :Files<CR>
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
 
 " auto-folding
 set foldenable
@@ -276,7 +280,6 @@ au BufNewFile,BufRead *.vm,*.shtml,*.stm,*.vtl set ft=velocity
 " c++ autoformat
 autocmd BufWritePre *.cpp execute ':Format'
 
-
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:closetag_regions =  {
 \ 'typescript.tsx': 'jsxRegion,tsxRegion',
@@ -294,3 +297,10 @@ imap <silent><script><expr> <C-k> copilot#Accept("\<CR>")
 " mergetool
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
+
+lua << EOF
+require("bufferline").setup{
+options = {
+  }
+}
+EOF
