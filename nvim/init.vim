@@ -129,8 +129,8 @@ nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 
 " auto-folding
-set foldenable
-"set nofoldenable
+"set foldenable
+set nofoldenable
 set foldmethod=syntax
 set foldnestmax=2
 autocmd! BufReadPost * :if line('$') < 60 | set foldlevel=1000 | endif

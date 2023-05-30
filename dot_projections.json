@@ -1,18 +1,18 @@
 {
-  "*component.ts": {
-    "alternate": "{}component.html",
-    "type": "controller"
-  },
-  "*.html": {
-    "alternate": "{}.ts",
-    "type": "template"
-  },
   "*.go": {
     "alternate": "{}_test.go",
     "type": "main"
   },
   "*_test.go": {
     "alternate": "{}.go",
+    "type": "test"
+  },
+  "*.ts": {
+    "alternate": "{}.vitest.ts",
+    "type": "main"
+  },
+  "*.vitest.ts": {
+    "alternate": "{}.ts",
     "type": "test"
   }
 }
