@@ -29,7 +29,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'rhysd/vim-clang-format'
 Plug 'samoshkin/vim-mergetool'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+
+"Plug 'scrooloose/nerdtree'
+Plug 'nvim-tree/nvim-web-devicons' " optional
+Plug 'nvim-tree/nvim-tree.lua'
+
 Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dotenv'
@@ -47,7 +51,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 
 Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+Plug 'akinsho/bufferline.nvim'
 
 call plug#end()
 
@@ -74,7 +78,7 @@ set cursorline
 "hi CursorLine cterm=none ctermbg=234
 
 " mouse
-set mouse=r "Use mouse (all)
+set mouse=n "Use mouse (all)
 
 " fancy mappings
 map Y y$
@@ -299,8 +303,31 @@ let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
 lua << EOF
-require("bufferline").setup{
-options = {
-  }
-}
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("bufferline").setup{}
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+-- require("nvim-tree").setup({
+--   sort_by = "case_sensitive",
+--   view = {
+--     width = 30,
+--   },
+--   renderer = {
+--     group_empty = true,
+--   },
+--   filters = {
+--     dotfiles = true,
+--   },
+-- })
+
+
 EOF
