@@ -45,13 +45,16 @@ Plug 'tpope/vim-surround'
 Plug 'uarun/vim-protobuf'
 Plug 'vickenty/vim-hive'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-latex/vim-latex'
+"Plug 'vim-latex/vim-latex'
 Plug 'vim-scripts/svg.vim'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 
 Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
+
+"Plug 'neovim/nvim-lspconfig'
+Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
@@ -190,6 +193,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> <c-]> <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -291,7 +299,7 @@ let g:closetag_regions =  {
 \ }
 
 " use node 17 with copilot
-let g:copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
+"let g:copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
 
 " remap copilot complete (tab is used by coc)
 let g:copilot_no_tab_map = v:true
@@ -302,32 +310,7 @@ imap <silent><script><expr> <C-k> copilot#Accept("\<CR>")
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
-lua << EOF
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+" python
+let g:python3_host_prog = '~/.pyenv/shims/python3'
 
-require("bufferline").setup{}
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
--- require("nvim-tree").setup({
---   sort_by = "case_sensitive",
---   view = {
---     width = 30,
---   },
---   renderer = {
---     group_empty = true,
---   },
---   filters = {
---     dotfiles = true,
---   },
--- })
-
-
-EOF
+lua require('config')
