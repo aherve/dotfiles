@@ -1,5 +1,7 @@
 call plug#begin('~/.local/share/nvim/site/autoload')
 
+Plug 'morhetz/gruvbox'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
@@ -71,7 +73,6 @@ filetype plugin indent on
 "let g:syntastic_check_on_wq = 0
 
 " colorsheme
-set termencoding=utf8
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='soft'
 set termguicolors
@@ -188,10 +189,11 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gc <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> <c-]> <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gr <Plug>(coc-references)
 
 
 nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
@@ -262,7 +264,7 @@ command! -nargs=0 Format :call CocAction('format')
 " =============================================================================
 
 
-" golang
+"" golang
 nmap <leader>gr <Plug>(go-run)
 nmap <leader>gc <Plug>(go-build)
 nmap <leader>gt :GoTest!<cr>
@@ -272,13 +274,13 @@ let g:go_info_mode='gopls'
 "let g:deoplete#enable_at_startup = 1
 "let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 
-" This prevents go autofmt to refold everything after each save
-let g:go_fmt_experimental = 1
-let g:go_fmt_command = "goimports"
-let g:go_mod_fmt_autosave = 1
+"" This prevents go autofmt to refold everything after each save
+"let g:go_fmt_experimental = 1
+"let g:go_fmt_command = "goimports"
+"let g:go_mod_fmt_autosave = 1
 
-let g:go_imports_mode = "goimports"
-let g:go_imports_autosave = 1
+"let g:go_imports_mode = "goimports"
+"let g:go_imports_autosave = 1
 
 " scala
 au BufRead,BufNewFile *.sbt set filetype=scala
@@ -298,9 +300,6 @@ let g:closetag_regions =  {
 \ 'javascript.jsx': 'jsxRegion',
 \ }
 
-" use node 17 with copilot
-"let g:copilot_node_command = "~/.nvm/versions/node/v17.9.1/bin/node"
-
 " remap copilot complete (tab is used by coc)
 let g:copilot_no_tab_map = v:true
 let g:copilot_assume_mapped = v:true
@@ -314,3 +313,5 @@ let g:mergetool_prefer_revision = 'local'
 let g:python3_host_prog = '~/.pyenv/shims/python3'
 
 lua require('config')
+
+
