@@ -32,6 +32,18 @@ Plug 'rhysd/vim-clang-format'
 Plug 'samoshkin/vim-mergetool'
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'OXY2DEV/markview.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'olimorris/codecompanion.nvim'
+Plug 'echasnovski/mini.nvim'
+Plug 'echasnovski/mini.icons'
+Plug 'nvim-tree/nvim-web-devicons'
+"Plug 'echasnovski/mini.diff'
+
+
 "Plug 'scrooloose/nerdtree'
 Plug 'nvim-tree/nvim-web-devicons' " optional
 Plug 'nvim-tree/nvim-tree.lua'
@@ -40,7 +52,7 @@ Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
+"Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -296,9 +308,9 @@ autocmd BufWritePre *.cpp execute ':Format'
 
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:closetag_regions =  {
-\ 'typescript.tsx': 'jsxRegion,tsxRegion',
-\ 'javascript.jsx': 'jsxRegion',
-\ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ }
 
 " remap copilot complete (tab is used by coc)
 let g:copilot_no_tab_map = v:true
@@ -313,5 +325,3 @@ let g:mergetool_prefer_revision = 'local'
 let g:python3_host_prog = '~/.pyenv/shims/python3'
 
 lua require('config')
-
-
