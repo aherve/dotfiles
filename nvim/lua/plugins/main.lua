@@ -15,7 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin configuration
 require("lazy").setup({
   -- Colorscheme
-  { "morhetz/gruvbox", config = function()
+  {
+    "morhetz/gruvbox",
+    config = function()
       vim.g.gruvbox_italic = 1
       vim.g.gruvbox_contrast_dark = "soft"
       vim.opt.termguicolors = true
@@ -34,9 +36,13 @@ require("lazy").setup({
       "neovim/nvim-lspconfig",
     },
   },
-  {'hrsh7th/nvim-cmp'},                  -- Autocomplete engine
-  {'hrsh7th/cmp-nvim-lsp'},              -- Completion source for LSP
-  {'L3MON4D3/LuaSnip'},                  -- Snippet engine
+  { 'hrsh7th/nvim-cmp' },     -- Autocomplete engine
+  { 'hrsh7th/cmp-nvim-lsp' }, -- Completion source for LSP
+  {
+    'L3MON4D3/LuaSnip',
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  }, -- Snippet engine
 
 
   {
@@ -88,7 +94,7 @@ require("lazy").setup({
       sign = {
         enabled = false,
       },
-      file_types = {'markdown', 'codecompanion'},
+      file_types = { 'markdown', 'codecompanion' },
     }
   },
   {
@@ -149,23 +155,23 @@ local luasnip = require('luasnip')
 
 cmp.setup({
   sources = {
-    {name = 'nvim_lsp'},
-    {name = 'luasnip'},
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
   },
   mapping = {
-        -- ... Your other mappings ...
-   ['<CR>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            if luasnip.expandable() then
-                luasnip.expand()
-            else
-                cmp.confirm({
-                    select = true,
-                })
-            end
+    -- ... Your other mappings ...
+    ['<CR>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        if luasnip.expandable() then
+          luasnip.expand()
         else
-            fallback()
+          cmp.confirm({
+            select = true,
+          })
         end
+      else
+        fallback()
+      end
     end),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
@@ -195,14 +201,14 @@ cmp.setup({
   },
 })
 
-local lsp_cmds = vim.api.nvim_create_augroup('lsp_cmds', {clear = true})
+local lsp_cmds = vim.api.nvim_create_augroup('lsp_cmds', { clear = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_cmds,
   desc = 'LSP actions',
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      vim.keymap.set(mode, lhs, rhs, {buffer = true})
+      vim.keymap.set(mode, lhs, rhs, { buffer = true })
     end
 
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
@@ -213,7 +219,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
     bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>')
-    bufmap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
+    bufmap({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
     bufmap('n', '<leader>ta', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     bufmap('n', '[c', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
