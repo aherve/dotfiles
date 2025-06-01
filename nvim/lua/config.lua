@@ -116,7 +116,9 @@ vim.g.closetag_regions = {
 -- Remap copilot complete (tab is used by coc)
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-vim.keymap.set('i', '<C-k>', 'copilot#Accept("<CR>")', { expr = true, silent = true, script = true })
+vim.keymap.set('i', '<C-k>', function()
+  return vim.fn['copilot#Accept']()
+end, { expr = true, silent = true, replace_keycodes = false })
 
 -- Mergetool settings
 vim.g.mergetool_layout = 'mr'

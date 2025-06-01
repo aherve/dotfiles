@@ -23,6 +23,9 @@ require("lazy").setup({
     end
   },
 
+  require('plugins.telescope'),
+  require('plugins.vim-go'),
+
   -- Plugin list
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -38,7 +41,6 @@ require("lazy").setup({
   "chrisbra/csv.vim",
   "derekwyatt/vim-scala",
   "ekalinin/Dockerfile.vim",
-  { "fatih/vim-go", build = ":GoUpdateBinaries" },
   "github/copilot.vim",
   "hashivim/vim-terraform",
   "jiangmiao/auto-pairs",

@@ -15,11 +15,3 @@ map('n', '<space>', '<PageDown>', opts)
 -- vim-projectionist quickey (ag: alternate go)
 map('n', '<Leader>ag', ':A<CR>', { desc = 'projectionist: alternate go' })
 
-map('n', '<Leader>f', ':GFiles<CR>', { desc = 'fzf: git files' })
-map('n', '<Leader>F', ':Files<CR>', { desc = 'fzf: files' })
-
--- Golang keymaps and settings
-map('n', '<leader>gr', ':GoRun<CR>', { noremap = true, silent = true })
-map('n', '<leader>gc', ':GoBuild<CR>', { noremap = true, silent = true })
-map('n', '<leader>gt', ':GoTest!<CR>', { noremap = true, silent = true })
-map('n', '<leader>gl', ':GoLint<CR>', { noremap = true, silent = true })
