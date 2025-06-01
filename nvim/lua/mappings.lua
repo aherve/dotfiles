@@ -15,3 +15,4 @@ map('n', '<space>', '<PageDown>', opts)
 -- vim-projectionist quickey (ag: alternate go)
 map('n', '<Leader>ag', ':A<CR>', { desc = 'projectionist: alternate go' })
 
+vim.lsp.enable('typescript')

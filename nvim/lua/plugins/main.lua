@@ -26,7 +26,19 @@ require("lazy").setup({
   require('plugins.telescope'),
   require('plugins.vim-go'),
 
-  -- Plugin list
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {'hrsh7th/nvim-cmp'},                  -- Autocomplete engine
+  {'hrsh7th/cmp-nvim-lsp'},              -- Completion source for LSP
+  {'L3MON4D3/LuaSnip'},                  -- Snippet engine
+
+
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -52,7 +64,7 @@ require("lazy").setup({
   "lepture/vim-velocity",
   "lervag/vimtex",
   "maxmellon/vim-jsx-pretty",
-  { "neoclide/coc.nvim", branch = "release" },
+  --{ "neoclide/coc.nvim", branch = "release" },
   "neoclide/jsonc.vim",
   "nikvdp/ejs-syntax",
   "othree/html5.vim",
@@ -129,6 +141,83 @@ require("lazy").setup({
       require("bufferline").setup {}
     end,
   },
-  { "yaegassy/coc-ruff", build = "yarn install --frozen-lockfile" },
+  --{ "yaegassy/coc-ruff", build = "yarn install --frozen-lockfile" },
+})
+
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+cmp.setup({
+  sources = {
+    {name = 'nvim_lsp'},
+    {name = 'luasnip'},
+  },
+  mapping = {
+        -- ... Your other mappings ...
+   ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            if luasnip.expandable() then
+                luasnip.expand()
+            else
+                cmp.confirm({
+                    select = true,
+                })
+            end
+        else
+            fallback()
+        end
+    end),
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+})
+
+local lsp_cmds = vim.api.nvim_create_augroup('lsp_cmds', {clear = true})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = lsp_cmds,
+  desc = 'LSP actions',
+  callback = function()
+    local bufmap = function(mode, lhs, rhs)
+      vim.keymap.set(mode, lhs, rhs, {buffer = true})
+    end
+
+    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+    bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+    bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
+    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  end
 })
 
