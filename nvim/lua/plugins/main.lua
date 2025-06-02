@@ -15,27 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin configuration
 require("lazy").setup({
   -- Colorscheme
-  {
-    "morhetz/gruvbox",
-    config = function()
-      vim.g.gruvbox_italic = 1
-      vim.g.gruvbox_contrast_dark = "soft"
-      vim.opt.termguicolors = true
-      vim.cmd("colorscheme gruvbox")
-    end
-  },
-
+  require("plugins.theme"),
   require('plugins.telescope'),
   require('plugins.vim-go'),
+  require('plugins.codecompanion'),
+  require('plugins.mason'),
 
-  {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {},
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
-    },
-  },
   { 'hrsh7th/nvim-cmp' },     -- Autocomplete engine
   { 'hrsh7th/cmp-nvim-lsp' }, -- Completion source for LSP
   {
@@ -70,7 +55,6 @@ require("lazy").setup({
   "lepture/vim-velocity",
   "lervag/vimtex",
   "maxmellon/vim-jsx-pretty",
-  --{ "neoclide/coc.nvim", branch = "release" },
   "neoclide/jsonc.vim",
   "nikvdp/ejs-syntax",
   "othree/html5.vim",
@@ -97,37 +81,13 @@ require("lazy").setup({
       file_types = { 'markdown', 'codecompanion' },
     }
   },
-  {
-    "olimorris/codecompanion.nvim",
-    opts = {
-      strategies = {
-        chat = {
-          adapter = "copilot",
-        },
-        inline = {
-          adapter = "copilot",
-        },
-        cmd = {
-          adapter = "copilot",
-        }
-      }
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
   "echasnovski/mini.nvim",
   {
     "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
+    lazy = true,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
   },
   "stevearc/vim-arduino",
   "tpope/vim-abolish",
