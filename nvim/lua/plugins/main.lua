@@ -20,6 +20,7 @@ require("lazy").setup({
   require('plugins.vim-go'),
   require('plugins.codecompanion'),
   require('plugins.mason'),
+  require('plugins.conform'),
 
   { 'hrsh7th/nvim-cmp' },     -- Autocomplete engine
   { 'hrsh7th/cmp-nvim-lsp' }, -- Completion source for LSP
@@ -107,7 +108,6 @@ require("lazy").setup({
       require("bufferline").setup {}
     end,
   },
-  "lukas-reineke/lsp-format.nvim",
 })
 
 local cmp = require('cmp')
@@ -185,11 +185,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', '[c', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
     bufmap('n', ']c', '<cmd>lua vim.diagnostic.goto_next()<cr>')
   end
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-    require("lsp-format").on_attach(client, args.buf)
-  end,
 })

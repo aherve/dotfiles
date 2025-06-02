@@ -45,14 +45,16 @@ vim.opt.showmatch = true -- Parenthesis matches
 vim.opt.matchtime = 2    -- Show new matching parenthesis for 2/10th of sec
 
 
--- Use home directory for swap files
-local swap_dir = vim.fn.expand("$HOME/.config/nvim/tmp/swap")
-
-if vim.fn.isdirectory(swap_dir) == 0 then
-  vim.fn.mkdir(swap_dir, "p", 0700)
-end
-
-vim.opt.directory = swap_dir
+--[[
+   [-- Use home directory for swap files
+   [local swap_dir = vim.fn.expand("$HOME/.config/nvim/tmp/swap")
+   [
+   [if vim.fn.isdirectory(swap_dir) == 0 then
+   [  vim.fn.mkdir(swap_dir, "p", 0700)
+   [end
+   [
+   [vim.opt.directory = swap_dir
+   ]]
 
 
 -- auto-folding
