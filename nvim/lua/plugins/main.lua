@@ -21,6 +21,7 @@ require("lazy").setup({
 	require("plugins.codecompanion"),
 	require("plugins.mason"),
 	require("plugins.conform"),
+	require("plugins.typescript"),
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
