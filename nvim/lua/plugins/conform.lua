@@ -3,6 +3,14 @@ return {
 	opts = {},
 	config = function()
 		require("conform").setup({
+			formatters = {
+				gofmt = {
+					condition = function(ctx)
+						local diagnostics = vim.diagnostic.get(ctx.buf)
+						return vim.tbl_isempty(diagnostics)
+					end,
+				},
+			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
 				timeout_ms = 500,
