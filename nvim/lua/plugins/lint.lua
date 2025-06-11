@@ -32,6 +32,8 @@ return {
 			vim.cmd("%!eslint_d --stdin --fix-to-stdout --stdin-filename " .. vim.fn.expand("%"))
 			-- Restore cursor position
 			vim.api.nvim_win_set_cursor(0, mark)
+			-- Save the buffer after formatting
+			vim.cmd("silent! write")
 		end, { desc = "Format with eslint_d" })
 	end,
 }
