@@ -21,7 +21,7 @@ require("lazy").setup({
 	require("plugins.codecompanion"),
 	require("plugins.mason"),
 	require("plugins.conform"),
-	require("plugins.typescript"),
+	require("plugins.lint"),
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
@@ -122,6 +122,8 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "path" },
 	},
 	mapping = {
 		-- ... Your other mappings ...
