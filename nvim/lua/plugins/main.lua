@@ -68,22 +68,21 @@ require("lazy").setup({
 	"rhysd/vim-clang-format",
 	"samoshkin/vim-mergetool",
 	"scrooloose/nerdcommenter",
-	{
-		"OXY2DEV/markview.nvim",
-		opts = {
-			preview = {
-				filetypes = { "markdown", "codecompanion" },
-				ignore_buftypes = {},
-			},
-		},
-	},
+	--[[
+		 [{
+		 [  "OXY2DEV/markview.nvim",
+		 [  opts = {
+		 [    preview = {
+		 [      filetypes = { "markdown", "codecompanion" },
+		 [      ignore_buftypes = {},
+		 [    },
+		 [  },
+		 [},
+     ]]
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {
 			render_modes = true,
-			sign = {
-				enabled = false,
-			},
 			file_types = { "markdown", "codecompanion" },
 		},
 	},
