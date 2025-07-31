@@ -23,6 +23,7 @@ require("lazy").setup({
 	require("plugins.conform"),
 	require("plugins.lint"),
 	require("plugins.autopairs"),
+	require("plugins.lualine"),
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
@@ -44,18 +45,7 @@ require("lazy").setup({
 	"artoj/pgn-syntax-vim",
 	"blueyed/vim-diminactive",
 	"chrisbra/csv.vim",
-	"derekwyatt/vim-scala",
-	"ekalinin/Dockerfile.vim",
 	"github/copilot.vim",
-	"hashivim/vim-terraform",
-	"jparise/vim-graphql",
-	{
-		"junegunn/fzf",
-		build = function()
-			vim.fn["fzf#install"]()
-		end,
-	},
-	"junegunn/fzf.vim",
 	"jxnblk/vim-mdx-js",
 	"leafgarland/typescript-vim",
 	"lepture/vim-velocity",
@@ -64,7 +54,6 @@ require("lazy").setup({
 	"neoclide/jsonc.vim",
 	"nikvdp/ejs-syntax",
 	"othree/html5.vim",
-	"pangloss/vim-javascript",
 	"rhysd/vim-clang-format",
 	"samoshkin/vim-mergetool",
 	"scrooloose/nerdcommenter",
@@ -103,7 +92,6 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	"uarun/vim-protobuf",
 	"vickenty/vim-hive",
-	"vim-airline/vim-airline",
 	"vim-scripts/svg.vim",
 	"xolox/vim-misc",
 	{
