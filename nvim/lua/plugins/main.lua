@@ -22,6 +22,7 @@ require("lazy").setup({
 	require("plugins.mason"),
 	require("plugins.conform"),
 	require("plugins.lint"),
+	require("plugins.autopairs"),
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
@@ -47,7 +48,6 @@ require("lazy").setup({
 	"ekalinin/Dockerfile.vim",
 	"github/copilot.vim",
 	"hashivim/vim-terraform",
-	"jiangmiao/auto-pairs",
 	"jparise/vim-graphql",
 	{
 		"junegunn/fzf",
