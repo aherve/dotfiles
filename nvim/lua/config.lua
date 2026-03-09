@@ -7,6 +7,9 @@ vim.cmd([[
   filetype plugin indent on
 ]])
 
+-- Disable swap files (avoids issues with git worktrees and long paths)
+vim.opt.swapfile = false
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 

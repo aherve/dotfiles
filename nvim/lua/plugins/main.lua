@@ -24,6 +24,7 @@ require("lazy").setup({
 	require("plugins.lint"),
 	require("plugins.autopairs"),
 	require("plugins.lualine"),
+  require("plugins.nvim-tree"),
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
@@ -75,13 +76,6 @@ require("lazy").setup({
 		},
 	},
 	"echasnovski/mini.nvim",
-	{
-		"nvim-tree/nvim-tree.lua",
-		lazy = true,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
 	"stevearc/vim-arduino",
 	"tpope/vim-abolish",
 	"tpope/vim-dotenv",
