@@ -83,7 +83,7 @@ vim.g.mergetool_layout = "mr"
 vim.g.mergetool_prefer_revision = "local"
 
 -- Python host program
-vim.g.python3_host_prog = vim.fn.expand("~/.pyenv/shims/python3")
+vim.g.python3_host_prog = vim.fn.expand("/opt/homebrew/bin/python3")
 
 -- git gutter: always display signs column (avoid flickering)
 vim.opt.signcolumn = "yes"

@@ -5,13 +5,22 @@ return {
 	opts = {
 		strategies = {
 			chat = {
-				adapter = "gemini",
+				adapter = {
+					name = "gemini",
+					model = "gemini-3.1-flash-lite",
+				},
 			},
 			inline = {
-				adapter = "copilot",
+				adapter = {
+					name = "gemini",
+					model = "gemini-3.1-flash-lite",
+				},
 			},
 			cmd = {
-				adapter = "copilot",
+				adapter = {
+					name = "gemini",
+					model = "gemini-3.1-flash-lite",
+				},
 			},
 		},
 	},

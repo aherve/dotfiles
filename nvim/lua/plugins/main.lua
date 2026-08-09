@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugin configuration
 require("lazy").setup({
 	-- Colorscheme
+	require("plugins.treesitter"),
 	require("plugins.theme"),
 	require("plugins.telescope"),
 	require("plugins.vim-go"),
@@ -24,7 +25,8 @@ require("lazy").setup({
 	require("plugins.lint"),
 	require("plugins.autopairs"),
 	require("plugins.lualine"),
-  require("plugins.nvim-tree"),
+	require("plugins.nvim-tree"),
+	{ "windwp/nvim-ts-autotag" }, -- autotags for html
 
 	{ "hrsh7th/nvim-cmp" }, -- Autocomplete engine
 	{ "hrsh7th/cmp-nvim-lsp" }, -- Completion source for LSP
